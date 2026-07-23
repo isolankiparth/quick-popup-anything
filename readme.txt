@@ -65,9 +65,11 @@ Perfect for bloggers, WooCommerce store owners, and marketers who need a simple,
 
 = CSS Class Trigger =
 
-Add the class `miqpa-open-popup` to any HTML element:
+By default, add the class `miqpa-open-popup` to any HTML element:
 
 `<a href="#" class="miqpa-open-popup">Open Popup</a>`
+
+You can also set a Custom Trigger Class in Popup Settings → Smart Triggers (e.g. `my-custom-trigger`), and both your custom class and `miqpa-open-popup` will work seamlessly.
 
 Works with WordPress menus — just add the CSS class to a menu item via Appearance → Menus.
 

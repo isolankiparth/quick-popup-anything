@@ -38,6 +38,7 @@ function miqpa_activation_plugin() {
 		'miqpa_popup_animation'       => 'fade',
 		'miqpa_popup_overlay_color'   => '#000000',
 		'miqpa_popup_overlay_opacity' => '80',
+		'miqpa_popup_trigger_class'   => '',
 	);
 
 	foreach ( $defaults as $option_name => $default_value ) {

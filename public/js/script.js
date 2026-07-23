@@ -28,6 +28,7 @@
 		var autoOpenDelay = parseInt($wrapper.attr('data-auto-open-delay'), 10) || 0;
 		var exitIntent    = $wrapper.attr('data-exit-intent') === '1';
 		var scrollTrigger = parseInt($wrapper.attr('data-scroll-trigger'), 10) || 0;
+		var customTriggerClass = $wrapper.attr('data-trigger-class') || '';
 
 		// Map animation name to CSS class.
 		var animationClassMap = {
@@ -169,8 +170,16 @@
 			});
 		}
 
-		// --- Feature: Open via CSS class (.miqpa-open-popup) ---
-		$(document).on('click', '.miqpa-open-popup', function (e) {
+		// --- Feature: Open via CSS class (.miqpa-open-popup and custom class) ---
+		var triggerSelector = '.miqpa-open-popup';
+		if (customTriggerClass) {
+			var cleanClass = $.trim(customTriggerClass).replace(/^\./, '');
+			if (cleanClass.length > 0) {
+				triggerSelector += ', .' + cleanClass;
+			}
+		}
+
+		$(document).on('click', triggerSelector, function (e) {
 			e.preventDefault();
 			if (isMobileBlocked()) {
 				return;

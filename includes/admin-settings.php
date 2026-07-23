@@ -504,6 +504,11 @@ if ( ! function_exists( 'miqpa_popup_settings_init' ) ) {
 			'sanitize_callback' => 'miqpa_sanitize_opacity',
 			'default'           => '80',
 		) );
+		register_setting( 'miqpa-popup-settings', 'miqpa_popup_trigger_class', array(
+			'type'              => 'string',
+			'sanitize_callback' => 'miqpa_sanitize_css_identifier',
+			'default'           => '',
+		) );
 
 		// Sections.
 		add_settings_section(
@@ -534,6 +539,7 @@ if ( ! function_exists( 'miqpa_popup_settings_init' ) ) {
 		add_settings_field( 'miqpa_popup_section_auto_open_delay', __( 'Auto-Open Delay', 'quick-popup-anything' ), 'miqpa_popup_section_auto_open_delay_cb', 'miqpa-popup-settings', 'miqpa_popup_triggers_section' );
 		add_settings_field( 'miqpa_popup_section_exit_intent', __( 'Exit Intent', 'quick-popup-anything' ), 'miqpa_popup_section_exit_intent_cb', 'miqpa-popup-settings', 'miqpa_popup_triggers_section' );
 		add_settings_field( 'miqpa_popup_section_scroll_trigger', __( 'Scroll Trigger', 'quick-popup-anything' ), 'miqpa_popup_section_scroll_trigger_cb', 'miqpa-popup-settings', 'miqpa_popup_triggers_section' );
+		add_settings_field( 'miqpa_popup_section_trigger_class', __( 'Custom Trigger Class', 'quick-popup-anything' ), 'miqpa_popup_section_trigger_class_cb', 'miqpa-popup-settings', 'miqpa_popup_triggers_section' );
 
 		// Appearance fields.
 		add_settings_field( 'miqpa_popup_section_popup_animation', __( 'Animation Effect', 'quick-popup-anything' ), 'miqpa_popup_section_popup_animation_cb', 'miqpa-popup-settings', 'miqpa_popup_appearance_section' );
@@ -680,6 +686,14 @@ if ( ! function_exists( 'miqpa_popup_settings_init' ) ) {
 			<span class="miqpa-range-value"><?php echo $value; ?>%</span>
 		</div>
 		<p class="description"><?php esc_html_e( 'Opacity of the background overlay. 0% = fully transparent, 100% = fully opaque.', 'quick-popup-anything' ); ?></p>
+		<?php
+	}
+
+	function miqpa_popup_section_trigger_class_cb() {
+		$value = esc_attr( get_option( 'miqpa_popup_trigger_class', '' ) );
+		?>
+		<input type="text" name="miqpa_popup_trigger_class" value="<?php echo $value; ?>" class="regular-text" placeholder="e.g. my-custom-trigger">
+		<p class="description"><?php esc_html_e( 'Optional. Add a custom CSS class to trigger the popup on click. The default class miqpa-open-popup will always work.', 'quick-popup-anything' ); ?></p>
 		<?php
 	}
 

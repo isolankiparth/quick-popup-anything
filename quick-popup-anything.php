@@ -3,19 +3,19 @@
  * Plugin Name:       Quick Popup Anything
  * Plugin URI:        https://wordpress.org/plugins/quick-popup-anything/
  * Description:       Lightweight popup & modal plugin with exit intent, auto-open delay, scroll trigger, animations, and shortcode support. No coding needed.
- * Version:           2.0.0
- * Author:            Monster Infotech
- * Author URI:        https://monsterinfotech.com/
+ * Version:           2.1.0
+ * Author:            Parth Solanki, Abhishek Kumbhani
+ * Author URI:        https://www.parthsolanki.com/
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  * Text Domain:       quick-popup-anything
  * Domain Path:       /languages
  * Requires at least: 5.0
- * Tested up to:      6.7
+ * Tested up to:      7.0.2
  * Requires PHP:      7.4
  *
  * @since             1.0.0
- * @author            Parth Solanki
+ * @author            Parth Solanki, Abhishek Kumbhani
  * @package           Quick_Popup_Anything
  */
 
@@ -28,7 +28,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @since 2.0.0
  * Define plugin version.
  */
-define( 'MIQPA_VERSION', '2.0.0' );
+define( 'MIQPA_VERSION', '2.1.0' );
 
 /**
  * @since 1.0.0

@@ -1,5 +1,7 @@
 # Quick Popup Anything — Lightweight WordPress Popup Plugin
 
+![Quick Popup Anything Banner](assets/banner-1544x500.png)
+
 [![WordPress](https://img.shields.io/badge/WordPress-5.0%2B-blue.svg)](https://wordpress.org/plugins/quick-popup-anything/)
 [![PHP](https://img.shields.io/badge/PHP-7.4%2B-purple.svg)](https://www.php.net/)
 [![License](https://img.shields.io/badge/License-GPLv2-green.svg)](https://www.gnu.org/licenses/gpl-2.0.html)
@@ -72,11 +74,17 @@ Place a popup trigger button anywhere in your posts or pages:
 
 ### CSS Class Trigger
 
-Add the class `miqpa-open-popup` to any HTML element to make it open the popup:
+By default, adding the class `miqpa-open-popup` to any HTML element will make it open the popup on click:
 
 ```html
 <a href="#" class="miqpa-open-popup">Open Popup</a>
 <button class="miqpa-open-popup">Show Offer</button>
+```
+
+You can also specify a **Custom Trigger Class** in **Popup Settings → Smart Triggers** (e.g. `my-custom-trigger`). Elements with your custom class will trigger the popup as well, while `miqpa-open-popup` remains active by default for full backward compatibility:
+
+```html
+<a href="#" class="my-custom-trigger">Open Special Offer</a>
 ```
 
 ## ❓ Frequently Asked Questions
@@ -141,7 +149,7 @@ Yes! Set the "Scroll Trigger" to `50` in Popup Settings, and the popup will appe
 
 ## 👥 Developers
 
-- [Parth Solanki](https://monsterinfotech.com/) — Lead Developer
+- [Parth Solanki](https://www.parthsolanki.com/) — Lead Developer
 - [Abhishek Kumbhani](https://abhishekkumbhani.com/) — Collaborator
 
 ## 📄 License

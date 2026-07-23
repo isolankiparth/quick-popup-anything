@@ -64,6 +64,7 @@ if ( ! function_exists( 'miqpa_add_code_in_footer' ) ) {
 		$animation         = get_option( 'miqpa_popup_animation', 'fade' );
 		$overlay_color     = get_option( 'miqpa_popup_overlay_color', '#000000' );
 		$overlay_opacity   = absint( get_option( 'miqpa_popup_overlay_opacity', '80' ) );
+		$trigger_class     = miqpa_sanitize_css_identifier( get_option( 'miqpa_popup_trigger_class', '' ) );
 
 		// --- Sanitize values for output ---
 
@@ -164,6 +165,9 @@ if ( ! function_exists( 'miqpa_add_code_in_footer' ) ) {
 		}
 		if ( $scroll_trigger > 0 && $scroll_trigger <= 100 ) {
 			$data_attrs[] = 'data-scroll-trigger="' . intval( $scroll_trigger ) . '"';
+		}
+		if ( ! empty( $trigger_class ) ) {
+			$data_attrs[] = 'data-trigger-class="' . esc_attr( $trigger_class ) . '"';
 		}
 
 		// --- Render HTML ---

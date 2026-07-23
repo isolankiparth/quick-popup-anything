@@ -39,6 +39,7 @@ $miqpa_options = array(
 	'miqpa_popup_animation',
 	'miqpa_popup_overlay_color',
 	'miqpa_popup_overlay_opacity',
+	'miqpa_popup_trigger_class',
 );
 
 foreach ( $miqpa_options as $option ) {
