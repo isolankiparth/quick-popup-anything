@@ -1,23 +1,492 @@
 /**
- * All of the CSS code
+ * Quick Popup Anything — Admin Styles
+ *
+ * @since   1.0.0
+ * @since   2.0.0 Complete redesign with modern card-based UI.
+ * @package Quick_Popup_Anything/admin
  */
 
-/* Setting Page Style */
-.miqpa_form .popup_content {
-	margin-top: 20px;
+/* ====================
+   CSS Custom Properties
+   ==================== */
+:root {
+	--miqpa-primary: #3b82f6;
+	--miqpa-primary-dark: #2563eb;
+	--miqpa-primary-light: #dbeafe;
+	--miqpa-success: #10b981;
+	--miqpa-surface: #ffffff;
+	--miqpa-surface-alt: #f8fafc;
+	--miqpa-border: #e2e8f0;
+	--miqpa-border-hover: #cbd5e1;
+	--miqpa-text: #1e293b;
+	--miqpa-text-muted: #64748b;
+	--miqpa-text-light: #94a3b8;
+	--miqpa-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+	--miqpa-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+	--miqpa-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.04);
+	--miqpa-radius: 10px;
+	--miqpa-radius-sm: 6px;
+	--miqpa-transition: 0.2s ease;
 }
-.miqpa_form .miqpa_white_box {
-	background: #fff;
-	padding: 10px 30px;
-	border: 1px solid lightgray;
-	border-top: 0;
+
+/* ====================
+   Header
+   ==================== */
+.miqpa-wrap {
+	max-width: 900px;
+	margin: 20px auto 40px;
 }
-.miqpa_form #poststuff #post-body-content h2 {
-    padding: 8px 12px 0;
+
+.miqpa-header {
+	background: linear-gradient(135deg, #1e3a5f 0%, #3b82f6 100%);
+	border-radius: var(--miqpa-radius) var(--miqpa-radius) 0 0;
+	padding: 28px 32px;
+	margin: 0;
 }
-.miqpa_form #poststuff p.submit {
-	padding: 0;
+
+.miqpa-header-inner {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
 }
-.miqpa_form #poststuff p.submit .button {
-	margin-bottom: 0;
+
+.miqpa-title {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	color: #ffffff !important;
+	font-size: 22px !important;
+	font-weight: 600 !important;
+	margin: 0 !important;
+	padding: 0 !important;
+	line-height: 1.3;
+	letter-spacing: -0.01em;
+}
+
+.miqpa-title-icon {
+	font-size: 28px;
+	opacity: 0.9;
+}
+
+.miqpa-version {
+	background: rgba(255, 255, 255, 0.18);
+	color: rgba(255, 255, 255, 0.9);
+	font-size: 12px;
+	font-weight: 500;
+	padding: 4px 12px;
+	border-radius: 20px;
+	letter-spacing: 0.03em;
+}
+
+/* ====================
+   Tab Navigation
+   ==================== */
+.miqpa-tabs-wrapper {
+	background: var(--miqpa-surface);
+	border: 1px solid var(--miqpa-border);
+	border-top: none;
+	border-radius: 0 0 var(--miqpa-radius) var(--miqpa-radius);
+	box-shadow: var(--miqpa-shadow-md);
+}
+
+.miqpa-tab-nav {
+	display: flex;
+	border-bottom: 1px solid var(--miqpa-border);
+	background: var(--miqpa-surface-alt);
+	padding: 0 8px;
+	gap: 4px;
+}
+
+.miqpa-tab-link {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	padding: 14px 20px;
+	color: var(--miqpa-text-muted);
+	font-size: 13.5px;
+	font-weight: 500;
+	text-decoration: none;
+	border-bottom: 3px solid transparent;
+	margin-bottom: -1px;
+	transition: color var(--miqpa-transition), border-color var(--miqpa-transition), background var(--miqpa-transition);
+	white-space: nowrap;
+}
+
+.miqpa-tab-link:hover,
+.miqpa-tab-link:focus {
+	color: var(--miqpa-primary);
+	background: rgba(59, 130, 246, 0.04);
+	text-decoration: none;
+}
+
+.miqpa-tab-link .dashicons {
+	font-size: 18px;
+	width: 18px;
+	height: 18px;
+	line-height: 18px;
+	opacity: 0.7;
+}
+
+.miqpa-tab-link.miqpa-tab-active {
+	color: var(--miqpa-primary);
+	border-bottom-color: var(--miqpa-primary);
+	background: var(--miqpa-surface);
+}
+
+.miqpa-tab-link.miqpa-tab-active .dashicons {
+	opacity: 1;
+}
+
+/* ====================
+   Tab Content
+   ==================== */
+.miqpa-tab-content {
+	padding: 24px 32px 32px;
+}
+
+/* ====================
+   Card
+   ==================== */
+.miqpa-card {
+	background: var(--miqpa-surface);
+	border: 1px solid var(--miqpa-border);
+	border-radius: var(--miqpa-radius);
+	overflow: hidden;
+	box-shadow: var(--miqpa-shadow-sm);
+}
+
+.miqpa-card-header {
+	padding: 20px 24px 16px;
+	border-bottom: 1px solid var(--miqpa-border);
+	background: var(--miqpa-surface-alt);
+}
+
+.miqpa-card-header h2 {
+	margin: 0 0 4px !important;
+	padding: 0 !important;
+	font-size: 16px !important;
+	font-weight: 600;
+	color: var(--miqpa-text);
+}
+
+.miqpa-card-desc {
+	margin: 0;
+	font-size: 13px;
+	color: var(--miqpa-text-muted);
+	line-height: 1.5;
+}
+
+.miqpa-card-body {
+	padding: 24px;
+}
+
+/* ====================
+   Settings Table Override
+   ==================== */
+.miqpa-card-body .form-table {
+	margin-top: 0;
+}
+
+.miqpa-card-body .form-table th {
+	padding: 16px 16px 16px 0;
+	font-size: 13.5px;
+	font-weight: 500;
+	color: var(--miqpa-text);
+	vertical-align: top;
+	width: 180px;
+}
+
+.miqpa-card-body .form-table td {
+	padding: 14px 0;
+	vertical-align: top;
+}
+
+.miqpa-card-body .form-table tr {
+	border-bottom: 1px solid #f1f5f9;
+}
+
+.miqpa-card-body .form-table tr:last-child {
+	border-bottom: none;
+}
+
+.miqpa-card-body .form-table input[type="text"],
+.miqpa-card-body .form-table input[type="number"],
+.miqpa-card-body .form-table select {
+	border: 1px solid var(--miqpa-border);
+	border-radius: var(--miqpa-radius-sm);
+	padding: 8px 12px;
+	font-size: 13.5px;
+	color: var(--miqpa-text);
+	background: var(--miqpa-surface);
+	transition: border-color var(--miqpa-transition), box-shadow var(--miqpa-transition);
+	height: auto;
+	line-height: 1.5;
+}
+
+.miqpa-card-body .form-table input[type="text"]:focus,
+.miqpa-card-body .form-table input[type="number"]:focus,
+.miqpa-card-body .form-table select:focus {
+	border-color: var(--miqpa-primary);
+	box-shadow: 0 0 0 3px var(--miqpa-primary-light);
+	outline: none;
+}
+
+.miqpa-card-body .form-table .description {
+	margin-top: 6px;
+	font-size: 12.5px;
+	color: var(--miqpa-text-light);
+	line-height: 1.5;
+}
+
+.miqpa-select {
+	min-width: 200px;
+}
+
+/* ====================
+   Toggle Switch
+   ==================== */
+.miqpa-toggle {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	cursor: pointer;
+	user-select: none;
+}
+
+.miqpa-toggle input[type="checkbox"] {
+	display: none;
+}
+
+.miqpa-toggle-slider {
+	position: relative;
+	width: 42px;
+	min-width: 42px;
+	height: 24px;
+	background: #cbd5e1;
+	border-radius: 12px;
+	transition: background var(--miqpa-transition);
+}
+
+.miqpa-toggle-slider::after {
+	content: '';
+	position: absolute;
+	top: 3px;
+	left: 3px;
+	width: 18px;
+	height: 18px;
+	background: #ffffff;
+	border-radius: 50%;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+	transition: transform var(--miqpa-transition);
+}
+
+.miqpa-toggle input[type="checkbox"]:checked + .miqpa-toggle-slider {
+	background: var(--miqpa-primary);
+}
+
+.miqpa-toggle input[type="checkbox"]:checked + .miqpa-toggle-slider::after {
+	transform: translateX(18px);
+}
+
+.miqpa-toggle-label {
+	font-size: 13px;
+	color: var(--miqpa-text-muted);
+	line-height: 1.5;
+}
+
+/* ====================
+   WP Editor Overrides
+   ==================== */
+.miqpa-card-body .wp-editor-wrap {
+	border-radius: var(--miqpa-radius-sm);
+	overflow: hidden;
+}
+
+/* ====================
+   Save Button
+   ==================== */
+.miqpa-save-btn.button-primary {
+	margin-top: 20px !important;
+	padding: 8px 28px !important;
+	font-size: 13.5px !important;
+	font-weight: 500 !important;
+	height: auto !important;
+	line-height: 1.6 !important;
+	border-radius: var(--miqpa-radius-sm) !important;
+	background: var(--miqpa-primary) !important;
+	border-color: var(--miqpa-primary-dark) !important;
+	box-shadow: var(--miqpa-shadow-sm) !important;
+	transition: background var(--miqpa-transition), box-shadow var(--miqpa-transition), transform 0.1s ease !important;
+}
+
+.miqpa-save-btn.button-primary:hover {
+	background: var(--miqpa-primary-dark) !important;
+	box-shadow: var(--miqpa-shadow-md) !important;
+	transform: translateY(-1px);
+}
+
+.miqpa-save-btn.button-primary:active {
+	transform: translateY(0);
+}
+
+/* ====================
+   WP Settings Errors
+   ==================== */
+.miqpa-wrap .notice,
+.miqpa-wrap .updated,
+.miqpa-wrap .error {
+	margin: 16px 0 0;
+	border-radius: var(--miqpa-radius-sm);
+}
+
+/* ====================
+   Color Picker Overrides
+   ==================== */
+.miqpa-card-body .wp-picker-container {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+
+.miqpa-card-body .wp-picker-container .wp-color-result {
+	border-radius: var(--miqpa-radius-sm);
+	border: 1px solid var(--miqpa-border);
+	box-shadow: var(--miqpa-shadow-sm);
+	height: 36px;
+}
+
+/* ====================
+   Submit row cleanup
+   ==================== */
+.miqpa_form p.submit {
+	padding: 0 !important;
+	margin: 0 !important;
+}
+
+/* ====================
+   Responsive
+   ==================== */
+@media screen and (max-width: 782px) {
+	.miqpa-wrap {
+		margin: 10px;
+	}
+
+	.miqpa-header {
+		padding: 20px 20px;
+		border-radius: var(--miqpa-radius-sm) var(--miqpa-radius-sm) 0 0;
+	}
+
+	.miqpa-title {
+		font-size: 18px !important;
+	}
+
+	.miqpa-tab-nav {
+		overflow-x: auto;
+		-webkit-overflow-scrolling: touch;
+		padding: 0 4px;
+	}
+
+	.miqpa-tab-link {
+		padding: 12px 14px;
+		font-size: 12.5px;
+	}
+
+	.miqpa-tab-content {
+		padding: 16px 16px 24px;
+	}
+
+	.miqpa-card-body {
+		padding: 16px;
+	}
+
+	.miqpa-card-body .form-table th {
+		width: auto;
+		padding-bottom: 4px;
+	}
+
+	.miqpa-toggle {
+		flex-wrap: wrap;
+	}
+}
+
+/* ====================
+   Range Slider
+   ==================== */
+.miqpa-range-wrap {
+	display: flex;
+	align-items: center;
+	gap: 14px;
+}
+
+.miqpa-range {
+	-webkit-appearance: none;
+	appearance: none;
+	width: 220px;
+	height: 6px;
+	background: var(--miqpa-border);
+	border-radius: 3px;
+	outline: none;
+	transition: background var(--miqpa-transition);
+}
+
+.miqpa-range::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	appearance: none;
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+	background: var(--miqpa-primary);
+	cursor: pointer;
+	box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+	transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.miqpa-range::-webkit-slider-thumb:hover {
+	transform: scale(1.15);
+	box-shadow: 0 2px 8px rgba(59, 130, 246, 0.35);
+}
+
+.miqpa-range::-moz-range-thumb {
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+	background: var(--miqpa-primary);
+	cursor: pointer;
+	border: none;
+	box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+}
+
+.miqpa-range-value {
+	font-size: 14px;
+	font-weight: 600;
+	color: var(--miqpa-text);
+	min-width: 40px;
+}
+
+/* ====================
+   Field Suffix (units)
+   ==================== */
+.miqpa-field-suffix {
+	font-size: 13px;
+	color: var(--miqpa-text-muted);
+	margin-left: 6px;
+}
+
+/* ====================
+   Section Headings in Card
+   ==================== */
+.miqpa-card-body .form-table + h2,
+.miqpa-card-body h2:first-child {
+	font-size: 14px !important;
+	font-weight: 600;
+	color: var(--miqpa-primary);
+	text-transform: uppercase;
+	letter-spacing: 0.06em;
+	margin: 28px 0 8px !important;
+	padding: 0 0 8px !important;
+	border-bottom: 2px solid var(--miqpa-primary-light);
+}
+
+.miqpa-card-body h2:first-child {
+	margin-top: 0 !important;
 }

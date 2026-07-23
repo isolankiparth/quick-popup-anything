@@ -1,134 +1,303 @@
 /**
- * All of the CSS code
+ * Quick Popup Anything — Frontend Styles
+ *
+ * @since   1.0.0
+ * @since   2.0.0 Removed duplicate rules, modernized transitions.
+ * @package Quick_Popup_Anything/public
  */
- 
-/* Quick Popup Anthing Button Style */ 
-button.miqpa_popup_open_button.right_center {
-	border-top-left-radius: 5px;
-	border-top-right-radius: 5px;
-  -webkit-transform-origin: 100% 100%;
-	transform-origin: 100% 100%;
-	right: 0;
-  cursor: pointer;
+
+/* ====================
+   Popup Overlay Fade
+   ==================== */
+.miqpa-mfp-fade.mfp-bg {
+	opacity: 0;
+	transition: all 0.2s ease-out;
 }
+
+.miqpa-mfp-fade.mfp-bg.mfp-ready {
+	opacity: 0.8;
+}
+
+.miqpa-mfp-fade.mfp-bg.mfp-removing {
+	opacity: 0;
+}
+
+/* ====================
+   Popup Content Fade
+   ==================== */
+.miqpa-mfp-fade.mfp-wrap .mfp-content {
+	opacity: 0;
+	transform: scale(0.95) translateY(10px);
+	transition: all 0.25s ease-out;
+}
+
+.miqpa-mfp-fade.mfp-wrap.mfp-ready .mfp-content {
+	opacity: 1;
+	transform: scale(1) translateY(0);
+}
+
+.miqpa-mfp-fade.mfp-wrap.mfp-removing .mfp-content {
+	opacity: 0;
+	transform: scale(0.95) translateY(10px);
+}
+
+/* ====================
+   Popup Close Button
+   ==================== */
+.miqpa-mfp-fade.mfp-close-btn-in .mfp-close {
+	transition: all 0.2s ease-in-out;
+	text-decoration: none;
+	opacity: 1;
+	outline: none;
+	border: 0;
+	border-radius: 4px;
+	font-size: 28px;
+	line-height: 28px;
+	width: 36px;
+	height: 36px;
+	text-align: center;
+}
+
+.miqpa-mfp-fade.mfp-close-btn-in .mfp-close:active {
+	top: 0;
+}
+
+/* ====================
+   Popup Container
+   ==================== */
+.miqpa-white-popup {
+	position: relative;
+	background: #ffffff;
+	color: #000000;
+	width: auto;
+	max-width: 600px;
+	margin: 20px auto;
+	border-radius: 8px;
+	box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+	overflow: hidden;
+}
+
+.miqpa-white-popup .wrap-miqpa {
+	padding: 24px;
+}
+
+/* ====================
+   Floating Button — Base
+   ==================== */
+button.miqpa_popup_open_button {
+	position: fixed;
+	z-index: 99;
+	text-decoration: none !important;
+	text-transform: uppercase;
+	line-height: 1;
+	padding: 15px 20px;
+	outline: none;
+	border: 0;
+	cursor: pointer;
+	font-size: 13px;
+	font-weight: 600;
+	letter-spacing: 0.05em;
+	transition: background-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
+	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+}
+
+button.miqpa_popup_open_button:hover {
+	box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+button.miqpa_popup_open_button:active {
+	transform: scale(0.97);
+}
+
+/* ====================
+   Button Positions — Center Left & Right (Rotated)
+   ==================== */
+button.miqpa_popup_open_button.left_center,
+button.miqpa_popup_open_button.right_center {
+	transform: rotate(-90deg);
+}
+
 button.miqpa_popup_open_button.left_center {
 	border-bottom-left-radius: 5px;
 	border-bottom-right-radius: 5px;
-  -webkit-transform-origin: 0 0;
 	transform-origin: 0 0;
 	left: 0;
 }
+
+button.miqpa_popup_open_button.right_center {
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	transform-origin: 100% 100%;
+	right: 0;
+}
+
 button.miqpa_popup_open_button.right_center span,
 button.miqpa_popup_open_button.left_center span {
-  zoom: 1.005;
+	zoom: 1.005;
 }
 
-
-
-/**
- * All of the CSS code
- */
- 
-/* Quick Popup Anthing Style */ 
-.miqpa-mfp-fade.mfp-bg {
-  opacity: 0;
-  -webkit-transition: all 0.15s ease-out;
-  -moz-transition: all 0.15s ease-out;
-  transition: all 0.15s ease-out;
-}
-.miqpa-mfp-fade.mfp-bg.mfp-ready {
-  opacity: 0.8;
-}
-.miqpa-mfp-fade.mfp-bg.mfp-removing {
-  opacity: 0;
-}
-.miqpa-mfp-fade.mfp-wrap .mfp-content {
-  opacity: 0;
-  -webkit-transition: all 0.15s ease-out;
-  -moz-transition: all 0.15s ease-out;
-  transition: all 0.15s ease-out;
-}
-.miqpa-mfp-fade.mfp-wrap.mfp-ready .mfp-content {
-  opacity: 1;
-}
-.miqpa-mfp-fade.mfp-wrap.mfp-removing .mfp-content {
-  opacity: 0;
-}
-.miqpa-mfp-fade.mfp-close-btn-in .mfp-close {
-  -webkit-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
-  text-decoration: none;
-  opacity: 1;
-  outline: none;
-  border: 0px;
-}
-.miqpa-mfp-fade.mfp-close-btn-in .mfp-close:active {
-  top: 0px;
-}
-.miqpa-white-popup {
-  position: relative;
-  background: #FFF;
-  color: #000;
-  width: auto;
-  max-width: 600px;
-  margin: 20px auto;
-}
-.miqpa-white-popup .wrap-miqpa {
-  padding: 20px;
-}
-
-/* Quick Popup Anthing Button Style */ 
-button.miqpa_popup_open_button {
-  position: fixed;
-  z-index: 99;
-  text-decoration: none !important;
-  text-transform: uppercase;
-  line-height: 1;
-  padding: 15px 20px;
-  outline: none;
-  border: 0px;
-  cursor: pointer;
-}
-button.miqpa_popup_open_button.left_center,
-button.miqpa_popup_open_button.right_center {
-  -webkit-transform: rotate(-90deg);
-  transform: rotate(-90deg);
-}
-button.miqpa_popup_open_button.left_center {
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
-  -webkit-transform-origin: 0 0;
-  transform-origin: 0 0;
-  left: 0;
-}
-button.miqpa_popup_open_button.right_center {
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
-  -webkit-transform-origin: 100% 100%;
-  transform-origin: 100% 100%;
-  right: 0;
-  cursor: pointer;
-}
+/* ====================
+   Button Positions — Bottom Left & Right
+   ==================== */
 button.miqpa_popup_open_button.bottom_left {
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
-  -webkit-transform-origin: 100% 100%;
-  transform-origin: 100% 100%;
-  cursor: pointer;
-  bottom: 0;
-  left: 40px;
-}
-button.miqpa_popup_open_button.bottom_right {
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
-  -webkit-transform-origin: 100% 100%;
-  transform-origin: 100% 100%;
-  cursor: pointer;
-  bottom: 0;
-  right: 40px;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	bottom: 0;
+	left: 40px;
 }
 
-button.miqpa_popup_open_button.right_center span,
-button.miqpa_popup_open_button.left_center span {
-  zoom: 1.005;
+button.miqpa_popup_open_button.bottom_right {
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+	bottom: 0;
+	right: 40px;
+}
+
+/* ====================
+   Animation: Zoom
+   ==================== */
+.miqpa-mfp-zoom.mfp-bg {
+	opacity: 0;
+	transition: all 0.25s ease-out;
+}
+
+.miqpa-mfp-zoom.mfp-bg.mfp-ready {
+	opacity: 0.8;
+}
+
+.miqpa-mfp-zoom.mfp-bg.mfp-removing {
+	opacity: 0;
+}
+
+.miqpa-mfp-zoom.mfp-wrap .mfp-content {
+	opacity: 0;
+	transform: scale(0.6);
+	transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.miqpa-mfp-zoom.mfp-wrap.mfp-ready .mfp-content {
+	opacity: 1;
+	transform: scale(1);
+}
+
+.miqpa-mfp-zoom.mfp-wrap.mfp-removing .mfp-content {
+	opacity: 0;
+	transform: scale(0.6);
+}
+
+/* ====================
+   Animation: Slide Up
+   ==================== */
+.miqpa-mfp-slide-up.mfp-bg {
+	opacity: 0;
+	transition: all 0.25s ease-out;
+}
+
+.miqpa-mfp-slide-up.mfp-bg.mfp-ready {
+	opacity: 0.8;
+}
+
+.miqpa-mfp-slide-up.mfp-bg.mfp-removing {
+	opacity: 0;
+}
+
+.miqpa-mfp-slide-up.mfp-wrap .mfp-content {
+	opacity: 0;
+	transform: translateY(80px);
+	transition: all 0.35s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.miqpa-mfp-slide-up.mfp-wrap.mfp-ready .mfp-content {
+	opacity: 1;
+	transform: translateY(0);
+}
+
+.miqpa-mfp-slide-up.mfp-wrap.mfp-removing .mfp-content {
+	opacity: 0;
+	transform: translateY(80px);
+}
+
+/* ====================
+   Animation: Slide Down
+   ==================== */
+.miqpa-mfp-slide-down.mfp-bg {
+	opacity: 0;
+	transition: all 0.25s ease-out;
+}
+
+.miqpa-mfp-slide-down.mfp-bg.mfp-ready {
+	opacity: 0.8;
+}
+
+.miqpa-mfp-slide-down.mfp-bg.mfp-removing {
+	opacity: 0;
+}
+
+.miqpa-mfp-slide-down.mfp-wrap .mfp-content {
+	opacity: 0;
+	transform: translateY(-80px);
+	transition: all 0.35s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.miqpa-mfp-slide-down.mfp-wrap.mfp-ready .mfp-content {
+	opacity: 1;
+	transform: translateY(0);
+}
+
+.miqpa-mfp-slide-down.mfp-wrap.mfp-removing .mfp-content {
+	opacity: 0;
+	transform: translateY(-80px);
+}
+
+/* ====================
+   Close Button — Shared (all animations)
+   ==================== */
+.miqpa-mfp-zoom.mfp-close-btn-in .mfp-close,
+.miqpa-mfp-slide-up.mfp-close-btn-in .mfp-close,
+.miqpa-mfp-slide-down.mfp-close-btn-in .mfp-close {
+	transition: all 0.2s ease-in-out;
+	text-decoration: none;
+	opacity: 1;
+	outline: none;
+	border: 0;
+	border-radius: 4px;
+	font-size: 28px;
+	line-height: 28px;
+	width: 36px;
+	height: 36px;
+	text-align: center;
+}
+
+.miqpa-mfp-zoom.mfp-close-btn-in .mfp-close:active,
+.miqpa-mfp-slide-up.mfp-close-btn-in .mfp-close:active,
+.miqpa-mfp-slide-down.mfp-close-btn-in .mfp-close:active {
+	top: 0;
+}
+
+/* ====================
+   Shortcode Button
+   ==================== */
+.miqpa-shortcode-btn {
+	display: inline-block;
+	padding: 12px 24px;
+	font-size: 14px;
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 0.04em;
+	border: 0;
+	border-radius: 6px;
+	cursor: pointer;
+	transition: background-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease, transform 0.15s ease;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+	background-color: #3498db;
+	color: #ffffff;
+}
+
+.miqpa-shortcode-btn:hover {
+	box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
+	transform: translateY(-1px);
+}
+
+.miqpa-shortcode-btn:active {
+	transform: translateY(0) scale(0.98);
 }
